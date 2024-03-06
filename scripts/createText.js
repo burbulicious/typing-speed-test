@@ -42,11 +42,14 @@ const createChars = async () => {
 const renderChars = async () => {
     const typingScreen = document.getElementById("typing-screen");
     typingScreen.style.transform = "translateY(0px)";
-    let statusMessage = document.createElement("h4");
-    statusMessage.classList.add("center-text");
-    statusMessage.innerText = "Loading text...";
+    let loadingMessage = document.createElement("h4");
+    let errorMessage = document.createElement("h4");
+    loadingMessage.classList.add("center-text");
+    errorMessage.classList.add("center-text");
+    loadingMessage.innerText = "Loading text...";
+    errorMessage.innerText = "There was an error loading the text. Try again later";
     typingScreen.innerHTML = "";
-    typingScreen.appendChild(statusMessage);
+    typingScreen.appendChild(loadingMessage);
 
     let words;
     try {
@@ -56,8 +59,11 @@ const renderChars = async () => {
             words = await createChars();
             storeDataInLocalStorage(window.textKey, words);
         }
-        if (statusMessage) {
-            typingScreen.removeChild(statusMessage);
+        if (loadingMessage) {
+            typingScreen.removeChild(loadingMessage);
+        }
+        if (errorMessage) {
+            typingScreen.removeChild(errorMessage);
         }
         words.forEach((word, wordIndex) => {
             const newWord = document.createElement("div");
@@ -75,8 +81,7 @@ const renderChars = async () => {
         // slideUp();
     } catch (error) {
         console.error("Error updating div with text:", error);
-        statusMessage.innerText = "There was an error loading the text. Try again later";
-        typingScreen.appendChild(statusMessage);
+        typingScreen.appendChild(errorMessage);
     }
 };
 
