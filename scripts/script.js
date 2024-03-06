@@ -14,7 +14,7 @@ import { showStatisticsWindow } from "./statistics.js";
 const handleKeyPress = (event) => {
     const typingScreen = document.getElementById("typing-screen");
     const currentWord = typingScreen?.children[window.currentWordIndex];
-    const currentChar = currentWord?.children[window.window.currentCharIndex];
+    const currentChar = currentWord?.children[window.currentCharIndex];
     if (currentChar && currentWord && isTextChar(event)) {
         if (window.currentCharIndex === 0 && window.window.currentWordIndex === 0) {
             document.addEventListener("keydown", startCounting);
@@ -30,6 +30,12 @@ const handleKeyPress = (event) => {
         } else {
             handleIncorrectKeyPress(event, currentChar, currentWord, typingScreen);
         }
+        Array.from(typingScreen.children).forEach((word, index) => {
+            word.classList.remove("current-word");
+            if (window.currentWordIndex === index) {
+                word.classList.add("current-word");
+            }
+        });
     }
 };
 

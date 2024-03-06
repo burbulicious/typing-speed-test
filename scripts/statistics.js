@@ -8,6 +8,10 @@ const showStatisticsWindow = () => {
     displayStatsBtn("none");
     document.querySelector("#table-container").style.display = "block";
     document.querySelector("#metrics").style.display = "none";
+    calculateStatistics(dataTable);
+};
+
+const calculateStatistics = (dataTable) => {
     if (getDataFromLocalStorage(window.statsKey)) {
         const stats = getDataFromLocalStorage(window.statsKey);
         stats.forEach((entry, index) => {
@@ -16,12 +20,12 @@ const showStatisticsWindow = () => {
             row.id = rowId;
             dataTable.appendChild(row);
             for (const key in entry) {
-                if (key !== "allCorrectWordsCount") {
+                if (key !== "allFinishedWordsCount") {
                     const cell = document.createElement("td");
                     let innerText;
                     if (key === "accuracy") {
                         innerText = `${entry[key]}%`;
-                    } else if (key === "allFinishedWordsCount") {
+                    } else if (key === "allCorrectWordsCount") {
                         innerText = `${entry[key]} wpm`;
                     } else {
                         innerText = entry[key];

@@ -13,9 +13,9 @@ const accuracy = document.querySelector("#accuracy");
 const tableContainer = document.querySelector("#table-container");
 
 const renderStartingStyle = () => {
-    heroTitle.style.transform = "translateY(0)";
-    infoScreen.style.transform = "translateY(-20px)";
-    helpText.style.opacity = 0;
+    heroTitle.style.transform = "translateY(0px)";
+    infoScreen.style.transform = "translateY(0px)";
+    helpText.style.opacity = 1;
     countdown.style.opacity = 1;
     typingScreenWrapper.style.display = "block";
     typingScreenTitle.style.display = "none";
@@ -25,8 +25,8 @@ const renderStartingStyle = () => {
 };
 
 const renderActiveStyle = () => {
-    heroTitle.style.transform = "translateY(0)";
-    infoScreen.style.transform = "translateY(0)";
+    heroTitle.style.transform = "translateY(0px)";
+    infoScreen.style.transform = "translateY(0px)";
     helpText.style.opacity = 1;
     countdown.style.opacity = 1;
     typingScreenWrapper.style.display = "block";
@@ -55,7 +55,7 @@ const showResults = () => {
     if (getDataFromLocalStorage(window.statsKey)) {
         const stats = getDataFromLocalStorage(window.statsKey);
         const latestStats = stats[stats.length - 1];
-        const lastestSpeed = latestStats.allFinishedWordsCount;
+        const lastestSpeed = latestStats.allCorrectWordsCount;
         const lastestAccuracy = latestStats.accuracy;
 
         speed.innerText = lastestSpeed;
@@ -65,7 +65,7 @@ const showResults = () => {
             displayComparisonItems("none");
         } else {
             const statsBefore = stats[stats.length - 2];
-            const speedBefore = statsBefore.allFinishedWordsCount;
+            const speedBefore = statsBefore.allCorrectWordsCount;
             const accuracyBefore = statsBefore.accuracy;
             displayComparisonItems("flex");
             updateComparisonItem(lastestSpeed, speedBefore, "#speed-comparison", ".number-of-words");

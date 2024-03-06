@@ -447,6 +447,11 @@ a {
   white-space: pre;
 }
 
+.typing-screen .word.current-word {
+  position: relative;
+  font-weight: 700;
+}
+
 .typing-screen .word > div {
   width: 20px;
   text-align: center;

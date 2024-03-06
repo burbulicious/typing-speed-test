@@ -15,6 +15,10 @@
         @include flex-start;
         padding-bottom: 20px;
         white-space: pre;
+        &.current-word {
+            position: relative;
+            font-weight: 700;
+        }
         & > div {
             width: 20px;
             text-align: center;

@@ -1,20 +1,90 @@
 window.currentWordIndex = 0;
 window.currentCharIndex = 0;
 
+const nonprintableKeyboardKeys = {
+    9: "Tab",
+    12: "5 in the numeric keypad when Num Lock is off",
+    17: "Ctrl",
+    18: "Alt",
+    19: "Pause/Break",
+    20: "Caps Lock",
+    33: "Page Up",
+    34: "Page Down",
+    35: "End",
+    36: "Home",
+    37: "Left arrow",
+    38: "Up arrow",
+    39: "Right arrow",
+    40: "Down arrow",
+    44: "Print Screen",
+    45: "Insert",
+    46: "Delete",
+    91: "left Win",
+    92: "right Win",
+    93: "Popup",
+    112: "F1",
+    113: "F2",
+    114: "F3",
+    115: "F4",
+    116: "F5",
+    117: "F6",
+    118: "F7",
+    119: "F8",
+    120: "F9",
+    121: "F10",
+    122: "F11",
+    123: "F12",
+    144: "Num Lock",
+    145: "Scroll Lock",
+};
+
 const isTextChar = (event) => {
     const isShiftPressed = event.getModifierState("ShiftKey");
     const isAlphanumeric = /^[a-zA-Z0-9,.!?:;'"\s-]+$/.test(event.key);
-    const isAltPressed = event.key === "Alt";
-    const isCapsPressed = event.key === "CapsLock";
-    const isControlPressed = event.key === "Control";
-    const isTabPressed = event.key === "Tab";
+    const isNonprintable = isNonprintableKey(event.keyCode);
     return (
-        (isShiftPressed && isAlphanumeric && !isAltPressed && !isCapsPressed && !isControlPressed && !isTabPressed) ||
-        (isAlphanumeric && !isAltPressed && !isCapsPressed && !isControlPressed && !isTabPressed) ||
-        (!isAltPressed && !isCapsPressed && !isControlPressed && !isTabPressed)
+        (isShiftPressed && isAlphanumeric && !isNonprintable) || (isAlphanumeric && !isNonprintable) || isAlphanumeric
     );
 };
-
+const isNonprintableKey = (keyCode) => {
+    const nonprintableKeyboardKeys = {
+        9: "Tab",
+        12: "5 in the numeric keypad when Num Lock is off",
+        17: "Ctrl",
+        18: "Alt",
+        19: "Pause/Break",
+        20: "Caps Lock",
+        33: "Page Up",
+        34: "Page Down",
+        35: "End",
+        36: "Home",
+        37: "Left arrow",
+        38: "Up arrow",
+        39: "Right arrow",
+        40: "Down arrow",
+        44: "Print Screen",
+        45: "Insert",
+        46: "Delete",
+        91: "left Win",
+        92: "right Win",
+        93: "Popup",
+        112: "F1",
+        113: "F2",
+        114: "F3",
+        115: "F4",
+        116: "F5",
+        117: "F6",
+        118: "F7",
+        119: "F8",
+        120: "F9",
+        121: "F10",
+        122: "F11",
+        123: "F12",
+        144: "Num Lock",
+        145: "Scroll Lock",
+    };
+    return Object.keys(nonprintableKeyboardKeys).includes(String(keyCode));
+};
 const isCorrectKeyPress = (event, currentChar) => {
     const isShiftPressed = event.getModifierState("ShiftKey");
     const isCorrectKey = event.key === currentChar.innerText;
