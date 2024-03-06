@@ -39,34 +39,26 @@ const nonprintableKeyboardKeys = {
 };
 
 const isTextChar = (event) => {
-    const isShiftPressed = event.getModifierState("ShiftKey");
-    const isAlphanumeric = /^[a-zA-Z0-9,.!?:;'"\s-]+$/.test(event.key);
-    const isNonprintable = isNonprintableKey(event.keyCode);
-    return (
-        (isShiftPressed && isAlphanumeric && !isNonprintable) || (isAlphanumeric && !isNonprintable) || isAlphanumeric
-    );
-};
-const isNonprintableKey = (keyCode) => {
     const nonprintableKeyboardKeys = {
         9: "Tab",
-        12: "5 in the numeric keypad when Num Lock is off",
+        12: "NumPad5",
         17: "Ctrl",
         18: "Alt",
         19: "Pause/Break",
-        20: "Caps Lock",
-        33: "Page Up",
-        34: "Page Down",
+        20: "CapsLock",
+        33: "PageUp",
+        34: "PageDown",
         35: "End",
         36: "Home",
-        37: "Left arrow",
-        38: "Up arrow",
-        39: "Right arrow",
-        40: "Down arrow",
-        44: "Print Screen",
+        37: "Leftarrow",
+        38: "Uparrow",
+        39: "Rightarrow",
+        40: "Downarrow",
+        44: "PrintScreen",
         45: "Insert",
         46: "Delete",
-        91: "left Win",
-        92: "right Win",
+        91: "leftWin",
+        92: "rightWin",
         93: "Popup",
         112: "F1",
         113: "F2",
@@ -80,11 +72,13 @@ const isNonprintableKey = (keyCode) => {
         121: "F10",
         122: "F11",
         123: "F12",
-        144: "Num Lock",
-        145: "Scroll Lock",
+        144: "NumLock",
+        145: "ScrollLock",
     };
-    return Object.keys(nonprintableKeyboardKeys).includes(String(keyCode));
+
+    return !nonprintableKeyboardKeys[event.keyCode];
 };
+
 const isCorrectKeyPress = (event, currentChar) => {
     const isShiftPressed = event.getModifierState("ShiftKey");
     const isCorrectKey = event.key === currentChar.innerText;
