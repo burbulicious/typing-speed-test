@@ -1,0 +1,97 @@
+@import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h1,
+.h1 {
+    font-size: 24px;
+    line-height: 1.25;
+    text-align: center;
+    text-transform: uppercase;
+    @media (max-width: $md) {
+        font-size: 20px;
+    }
+}
+h2,
+.h2 {
+    font-size: 56px;
+    line-height: 1.25;
+    font-weight: bold;
+    text-align: center;
+    max-width: 100%;
+    @media (max-width: $lg) {
+        font-size: 48px;
+    }
+    @media (max-width: $md) {
+        font-size: 36px;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 36px;
+    line-height: 1.25;
+    @media (max-width: $lg) {
+        font-size: 32px;
+    }
+    @media (max-width: $md) {
+        font-size: 24px;
+    }
+}
+h4,
+.h4 {
+    font-size: 28px;
+    line-height: 1.25;
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+    @media (max-width: $lg) {
+        font-size: 24px;
+    }
+    @media (max-width: $md) {
+        font-size: 20px;
+    }
+}
+h5,
+.h5 {
+    font-size: 28px;
+    line-height: 1;
+    @media (max-width: $lg) {
+        font-size: 24px;
+    }
+}
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    @media (max-width: $lg) {
+        font-size: 16px;
+    }
+}
+a {
+    text-decoration: none;
+    font-size: inherit;
+}
+.bold {
+    font-weight: 700;
+}
+.text-yellow {
+    color: $yellow;
+}
+.center {
+    text-align: center;
+}
+.text-black {
+    color: $black;
+}
+.text-dark-grey {
+    color: $dark-grey;
+}
+.center-text {
+    text-align: center;
+    margin: 0 auto;
+}

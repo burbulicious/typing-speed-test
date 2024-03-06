@@ -1,0 +1,60 @@
+@import "variables";
+
+.metrics {
+    @include row;
+    @include flex-center;
+    @media (max-width: $md) {
+        @include col;
+    }
+    &__wrapper {
+        padding: 0 30px;
+        @include col;
+        @include flex-center;
+        @media (max-width: $md) {
+            padding-bottom: 30px;
+        }
+        p,
+        h5 {
+            margin-bottom: 0;
+        }
+        .one-metric {
+            @include row;
+            @include flex-center;
+            h5 {
+                font-weight: 700;
+                width: 72px;
+                height: 72px;
+                border-radius: 8px;
+                display: flex;
+                @include flex-center;
+                margin-right: 12px;
+                background-color: $yellow-10;
+            }
+        }
+        .comparison {
+            @include col;
+            @include flex-center;
+            padding-top: 12px;
+            p {
+                font-size: 14px;
+                margin: 0;
+            }
+            span {
+                font-weight: 700;
+            }
+            .improvement {
+                text-transform: uppercase;
+            }
+            .worse {
+                span {
+                    color: $status-red;
+                }
+            }
+            .better {
+                span {
+                    color: $status-green;
+                }
+            }
+        }
+    }
+}

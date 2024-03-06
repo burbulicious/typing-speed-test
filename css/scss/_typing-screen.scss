@@ -1,0 +1,62 @@
+@import "variables";
+.typing-screen-wrapper {
+    max-height: 213px;
+    overflow: hidden;
+    width: 100%;
+}
+.typing-screen {
+    width: 100%;
+    @include row;
+    @include flex-start;
+    flex-wrap: wrap;
+    @include transition-style;
+    .word {
+        @include row;
+        @include flex-start;
+        padding-bottom: 20px;
+        white-space: pre;
+        & > div {
+            width: 20px;
+            text-align: center;
+            padding: 8px 1px;
+            border-radius: 2px;
+            margin-right: 4px;
+            white-space: pre;
+            &.correct {
+                color: $status-green;
+                background-color: $status-light-green;
+            }
+            &.incorrect {
+                color: $status-red;
+                background-color: $status-light-red;
+            }
+            &.current {
+                color: $status-blue;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 16px;
+                    height: 2px;
+                    background-color: $status-blue;
+                    bottom: 5px;
+                    left: 2px;
+                    animation-name: fadeInOut;
+                    animation-duration: 2s;
+                    animation-iteration-count: infinite;
+                }
+            }
+        }
+    }
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

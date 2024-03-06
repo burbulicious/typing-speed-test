@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Typing speed test</title>
+        <meta name="description" content="Tic Tac Toe game" />
+        <script type="module" src="./scripts/script.js"></script>
+        <meta name="author" content="You" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous" />
+        <link href="/css/styles.css" rel="stylesheet" type="text/css" />
+        <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
+    </head>
+    <body>
+        <section class="section">
+            <div class="content">
+                <div class="top-content" id="top-content">
+                    <h1 class="mb-2 opacity-70">Typing speed test</h1>
+                    <h2 class="mb-0">Test your typing <span class="text-yellow">speed</span></h2>
+                </div>
+                <div class="countdown" id="countdown">
+                    <div class="timer-wrapper">
+                        <div id="time"></div>
+                        <p class="seconds">seconds</p>
+                        <canvas id="stopwatch" width="120" height="120"></canvas>
+                    </div>
+                </div>
+                <div class="info-screen" id="info-screen">
+                    <div class="help-text" id="help-text">
+                        <p class="opacity-70 center">
+                            Press <span class="bold">"Enter"</span> to restart the current test
+                        </p>
+                        <p class="opacity-70 center">
+                            Press <span class="bold">"Esc"</span> to start a completely new test
+                        </p>
+                    </div>
+                    <div class="white-wrapper text-black">
+                        <h3 class="center title" id="typing-screen-title">Here is how you did this time</h3>
+                        <div class="typing-screen-wrapper" id="typing-screen-wrapper">
+                            <div class="typing-screen h4 text-dark-grey" id="typing-screen"></div>
+                        </div>
+                        <div class="metrics" id="metrics">
+                            <div class="metrics__wrapper">
+                                <div class="one-metric">
+                                    <h5 id="speed">100</h5>
+                                    <p>words/min</p>
+                                </div>
+                                <div class="comparison" id="speed-comparison">
+                                    <p class="better">
+                                        <span class="number-of-words"></span> words
+                                        <span class="improvement">more</span> than last time
+                                    </p>
+                                    <p class="worse">
+                                        <span class="number-of-words"></span> words
+                                        <span class="improvement">less</span> than last time
+                                    </p>
+                                    <p class="same">You did the same as last time</p>
+                                </div>
+                            </div>
+                            <div class="metrics__wrapper">
+                                <div class="one-metric">
+                                    <h5 id="accuracy">100</h5>
+                                    <p><span class="bold">%</span> accuracy</p>
+                                </div>
+                                <div class="comparison" id="accuracy-comparison">
+                                    <p class="better">
+                                        <span class="number-of-percent"></span> %
+                                        <span class="improvement">more</span> than last time
+                                    </p>
+                                    <p class="worse">
+                                        <span class="number-of-percent"></span> %
+                                        <span class="improvement">less</span> than last time
+                                    </p>
+                                    <p class="same">You did the same as last time</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-container" id="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Words/min</th>
+                                        <th>Accuracy</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-table"></tbody>
+                            </table>
+                        </div>
+                        <div class="btn btn__yellow" id="practise-again">
+                            <span class="replay-icon"></span>Practice again
+                        </div>
+                    </div>
+                    <div class="btn-inline btn-inline__yellow" id="show-statistics">Show your results statistics</div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

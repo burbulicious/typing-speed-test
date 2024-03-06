@@ -1,0 +1,19 @@
+@import "variables";
+
+.table-container {
+    width: 100%;
+    table {
+        width: 100%;
+    }
+    td,
+    th {
+        padding: 12px;
+        border-bottom: 1px solid $grey;
+        text-align: left;
+    }
+    tbody {
+        tr:nth-child(2n-1) {
+            background-color: $light-grey;
+        }
+    }
+}

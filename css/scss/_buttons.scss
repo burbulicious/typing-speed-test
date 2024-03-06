@@ -1,0 +1,108 @@
+@import "variables";
+
+.btn {
+    @include transition-style;
+    @include row;
+    @include flex-center;
+    padding: 16px 24px;
+    border-radius: 6px;
+    font-size: 18px;
+    line-height: 1;
+    text-align: center;
+    min-width: 200px;
+    width: fit-content;
+    cursor: pointer;
+    transform: translateY(0);
+    position: relative;
+    outline: none;
+    &:disabled {
+        opacity: 0.5;
+    }
+    @media (max-width: $md) {
+        font-size: 16px;
+    }
+    .replay-icon {
+        @include transition-style;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url("../../icons/replay.svg");
+        background-position: center center;
+        background-size: contain;
+        margin-right: 10px;
+        transform: rotate(0);
+    }
+    &.btn__white {
+        background-color: $white;
+        color: $black;
+        border: none;
+        &:hover {
+            background-color: $white;
+            color: $black;
+            border: none;
+        }
+    }
+    &.btn__white__outlined {
+        border: solid 1px $white;
+        color: $white;
+        background-color: transparent;
+        &:hover,
+        &.active {
+            border: solid 1px $white;
+            background-color: $white;
+            color: $black;
+        }
+    }
+    &.btn__yellow {
+        background-color: $yellow;
+        color: $black;
+        border: none;
+        &:hover {
+            background-color: $yellow;
+            color: $black;
+            border: none;
+        }
+    }
+    &.btn__yellow__outlined {
+        border: solid 1px $yellow;
+        color: $yellow;
+        background-color: transparent;
+        &:hover,
+        &.active {
+            border: solid 1px $yellow;
+            background-color: $yellow;
+            color: $black;
+        }
+    }
+    &:hover {
+        transform: translateY(-3px);
+        .replay-icon {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.btn-inline {
+    @include transition-style;
+    padding: 0;
+    font-size: 18px;
+    @media (max-width: $md) {
+        font-size: 16px;
+    }
+    line-height: 1;
+    transform: translateY(0);
+    width: fit-content;
+    cursor: pointer;
+    &__white {
+        color: $white;
+    }
+    &__yellow {
+        color: $yellow;
+    }
+    &__black {
+        color: $black;
+    }
+    &:hover {
+        transform: translateY(-2px);
+    }
+}

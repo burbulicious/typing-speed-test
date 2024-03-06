@@ -1,0 +1,44 @@
+//breakpoints
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+$xs: 420px;
+
+// colours:
+$white: #fff;
+$black: #000;
+$dark-grey: #4a4a4a;
+$grey: #e6e6e6;
+$light-grey: #f5f5f5;
+$yellow: #ffd000;
+$yellow-10: #f6f2dd;
+$white-10: rgba(255, 255, 255, 0.1);
+$white-20: rgba(255, 255, 255, 0.1);
+$status-green: #73a46e;
+$status-light-green: #edf7e7;
+$status-red: #d55b60;
+$status-light-red: #ffdcd9;
+$status-blue: #409cdd;
+$status-light-blue: #e3edf3;
+
+@mixin transition-style {
+    transition: all 0.3s ease;
+}
+
+@mixin row {
+    display: flex;
+    flex-direction: row;
+}
+@mixin col {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center {
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-start {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
