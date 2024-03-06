@@ -578,6 +578,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -693,6 +694,7 @@ a {
 }
 
 .table-container {
+  display: none;
   width: 100%;
 }
 
