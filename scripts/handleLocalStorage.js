@@ -1,3 +1,6 @@
+window.textKey = "text";
+window.statsKey = "stats";
+
 const storeDataInLocalStorage = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
 };
@@ -16,6 +19,4 @@ const getDataFromLocalStorage = (key) => {
     }
 };
 
-window.textKey = "text";
-window.statsKey = "stats";
 export { storeDataInLocalStorage, getDataFromLocalStorage };

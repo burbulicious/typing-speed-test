@@ -33,7 +33,7 @@ const handleKeyPress = (event) => {
             handleIncorrectKeyPress(event, currentChar, currentWord, typingScreen);
         }
 
-        showCurrentWord();
+        showCurrentWord(typingScreen);
     }
 };
 
