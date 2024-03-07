@@ -6,6 +6,7 @@ import {
     handleCorrectKeyPress,
     handleIncorrectKeyPress,
     handleBackspace,
+    showCurrentWord,
 } from "./characterValidation.js";
 import { startCounting, resetTimer } from "./countdown.js";
 import { renderFinishedStyle, renderStartingStyle, displayStatsBtn } from "./displayResults.js";
@@ -17,8 +18,9 @@ const handleKeyPress = (event) => {
     const currentChar = currentWord?.children[window.currentCharIndex];
     if (currentChar && currentWord && isTextChar(event)) {
         if (window.currentCharIndex === 0 && window.window.currentWordIndex === 0) {
-            document.addEventListener("keydown", startCounting);
+            startCounting(event);
         }
+
         if (isCorrectKeyPress(event, currentChar)) {
             handleCorrectKeyPress(currentChar, currentWord, typingScreen);
         } else if (event.key === "Backspace") {
@@ -30,12 +32,8 @@ const handleKeyPress = (event) => {
         } else {
             handleIncorrectKeyPress(event, currentChar, currentWord, typingScreen);
         }
-        Array.from(typingScreen.children).forEach((word, index) => {
-            word.classList.remove("current-word");
-            if (window.currentWordIndex === index) {
-                word.classList.add("current-word");
-            }
-        });
+
+        showCurrentWord();
     }
 };
 

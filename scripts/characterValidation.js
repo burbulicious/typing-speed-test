@@ -98,7 +98,7 @@ const handleCorrectKeyPress = (currentChar, currentWord, typingScreen) => {
 };
 
 const handleIncorrectKeyPress = (event, currentChar, currentWord, typingScreen) => {
-    if (event.key !== "Shift") {
+    if (event.key !== "Shift" && isTextChar(event)) {
         currentChar.classList.remove("current", "correct");
         currentChar.classList.add("incorrect");
         window.currentCharIndex++;
@@ -147,4 +147,20 @@ const handleBackspace = (currentWord, typingScreen) => {
     }
 };
 
-export { isTextChar, isCorrectKeyPress, handleCorrectKeyPress, handleIncorrectKeyPress, handleBackspace };
+const showCurrentWord = (typingScreen) => {
+    Array.from(typingScreen.children).forEach((word, index) => {
+        word.classList.remove("current-word");
+        if (window.currentWordIndex === index) {
+            word.classList.add("current-word");
+        }
+    });
+};
+
+export {
+    isTextChar,
+    isCorrectKeyPress,
+    handleCorrectKeyPress,
+    handleIncorrectKeyPress,
+    handleBackspace,
+    showCurrentWord,
+};

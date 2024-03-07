@@ -46,7 +46,6 @@ const startCounting = (event) => {
     if (isTextChar(event) && event.key !== "Shift") {
         runTimer();
         renderActiveStyle();
-        document.removeEventListener("keydown", startCounting);
         timer = setTimeout(autoFinish, timeLimit * 1000);
     }
 };
